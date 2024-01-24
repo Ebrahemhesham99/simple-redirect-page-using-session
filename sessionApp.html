@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome</title>
+  </head>
+  <body>
+    <h1>Welcome!</h1>
+    <p>Please register below:</p>
+    <form method="post" id="registrationForm">
+      <label>Name:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+      <label>Address:</label>
+      <input type="text" id="address" name="address" /><br /><br />
+      <label>Gender:</label>
+      <input type="radio" name="gender" value="male" id="gender" /> Male
+      <input type="radio" name="gender" value="female" /> Female <br /><br />
+      <label>Email:</label>
+      <input type="email" id="email" name="email" /><br /><br />
+      <label>Mobile Phone:</label>
+      <input type="tel" id="mobilephone" name="mobilephone" /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    <script>
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          var name = document.getElementById("name").value;
+          var address = document.getElementById("address").value;
+          var gender = document.getElementsByName("gender").values;
+          var email = document.getElementById("email").value;
+          var mobile = document.getElementById("mobilephone").value;
+
+          sessionStorage.setItem("name", name);
+          sessionStorage.setItem("address", address);
+          sessionStorage.setItem("gender", gender);
+          sessionStorage.setItem("email", email);
+          sessionStorage.setItem("mobilephone", mobile);
+          window.location.href = "info-page.html";
+        });
+    </script>
+  </body>
+</html>

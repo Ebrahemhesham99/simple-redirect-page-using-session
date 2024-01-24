@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Info</title>
+  </head>
+  <body>
+    <h1>Welcome, <span id="user-name"></span>!</h1>
+    <p>your information is :</p>
+    <ul>
+      <li>Address: <span id="user-address"></span></li>
+      <li>Gender: <span id="user-gender"></span></li>
+      <li>Email: <span id="user-email"></span></li>
+      <li>Mobile Phone: <span id="user-mobilephone"></span></li>
+    </ul>
+    <script>
+      var name = sessionStorage.getItem("name");
+      var address = sessionStorage.getItem("address");
+      var gender = sessionStorage.getItem("gender");
+      var email = sessionStorage.getItem("email");
+      var mobile = sessionStorage.getItem("mobilephone");
+
+      document.getElementById("user-name").textContent = name;
+
+      // Display the user's information from the form submission
+      document.getElementById("user-address").textContent = address;
+      document.getElementById("user-gender").textContent = gender;
+      document.getElementById("user-email").textContent = email;
+      document.getElementById("user-mobilephone").textContent = mobile;
+
+      var isChrome =
+        /Chrome/.test(navigator.userAgent) &&
+        /Google Inc/.test(navigator.vendor);
+      if (!isChrome) {
+        alert(
+          "For the best experience, we recommend using Google Chrome browser." +
+            `<a href="https://www.google.com.sa/intl/ar/chrome/next-steps.html?brand=YTUH&statcb=1&installdataindex=empty&defaultbrowser=0>download it</a>"`
+        );
+      }
+    </script>
+  </body>
+</html>
